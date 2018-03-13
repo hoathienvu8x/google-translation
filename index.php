@@ -34,8 +34,9 @@ if (isset($_POST['text']) && !empty($_POST['text'])) {
 		$a[] = array_shift($js[0][0]);
 	}
 	$b = $js[1][0];
+	// print_r($b);
 	if (isset($b[0]) && isset($b[1]) && $b[0] == 'interjection') {
-		$a[] = $b[1];
+		$a[] = is_array($b[1]) ? array_shift($b[1]) : $b[1];;
 	}
 	echo implode(',',$a);
 	exit;
